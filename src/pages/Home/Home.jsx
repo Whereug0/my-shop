@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <div>
-        <Products products={list} amount={5}/>
+        <Products products={list} amount={9}/>
     </div>
   )
 }
