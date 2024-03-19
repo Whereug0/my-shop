@@ -22,9 +22,6 @@ const Products = ({products = [], amount }) => {
 
             </div>
           </div>
-          <div className={styles.buttons}>
-            <button className={styles.buyButton}>Купить</button>
-          </div>
         </Link>
       ))}
     </div>

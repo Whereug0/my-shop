@@ -5,7 +5,7 @@
   flex-wrap: wrap;
   gap: 20px;
   .cardWrapp {
-    border: 1px solid grey;
+    background: rgb(38, 37, 37);
     width: 20%;
     border-radius: 8px;
     .image {
@@ -19,21 +19,9 @@
 
 
 .wrapper {
-  height: 100px;
   padding: 20px;
   display: flex;
   flex-direction: column;
 }
 
 
-.buttons {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px;
-  .buyButton {
-    display: flex;
-    justify-content: flex-start;
-    width: 30%;
-  }
-}
