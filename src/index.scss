@@ -38,6 +38,9 @@ p {
 
 input,
 button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   outline: none;
   color: #fff;
@@ -66,4 +69,13 @@ li {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+svg {
+  width:20px;
+  height: 20px;
+  stroke: #fff;
+  &:hover{
+    stroke: #BB86FC;
+  }
 }

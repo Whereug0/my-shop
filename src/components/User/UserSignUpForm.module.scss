@@ -1,0 +1,55 @@
+.wrapper {
+  position: fixed;
+  top: 35%;
+  left: 40%;
+  background: #121212;
+  border-radius: 10px;
+  width: 320px;
+  height: max-content;
+  z-index: 99;
+  padding: 24px;
+  box-shadow: 0px 0px 15px 8px rgb(14, 13, 13);
+}
+
+.title {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: white;
+  text-align: center;
+}
+
+.form {
+  margin-top: 24px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.group input {
+  width: 100%;
+  background: #212123;
+  border-radius: 8px;
+  color: white;
+  padding: 12px 24px;
+}
+
+.close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 9;
+  cursor: pointer;
+}
+
+.link {
+  font-size: 13px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+}
+
+.link:hover {
+  color: #BB86FC;
+}

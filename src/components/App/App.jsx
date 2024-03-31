@@ -9,6 +9,7 @@ import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
 import AppRoutes from '../Routes/Routes';
 import { getProducts } from '../../features/products/productsSlice';
+import UserForm from '../User/UserForm';
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ function App() {
   return (
     <div className={styles.App}>
       <Header />
+      <UserForm />
       <div className={styles.container}>
         <Sidebar />
         <AppRoutes />
