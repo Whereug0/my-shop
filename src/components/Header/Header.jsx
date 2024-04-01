@@ -6,6 +6,7 @@ import { ROUTES } from "../../utils/routes";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleForm } from "../../features/user/userSlice";
 import AVATAR from '../../assets/images/avatar.jpg'
+
 const Header = () => {
   const dispatch = useDispatch();
   const {currentUser} = useSelector(({user}) => user);
@@ -51,13 +52,14 @@ const Header = () => {
             <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#bag`}/>
           </svg>
         </Link>
-        {/* {currentUser ?  */}
-          <div className={styles.account}>
+        {currentUser ?
+         (<div className={styles.account}>
             <img src={values.avatar} alt="avatar"/>
             <p>{values.name}</p>
-          </div>
-          {/* : */}
-          {/* <button onClick={handleClick}>Sign Up</button>} */}
+          </div>)
+          : 
+          (<button onClick={handleClick}>Log In</button>)
+        }
       </div>
     </div>
   );
