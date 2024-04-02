@@ -1,7 +1,6 @@
 import React from 'react'
-import Products from '../../components/Products/Products'
 import { useSelector } from 'react-redux'
-
+import SingleCategory from '../../components/SingleCategory/SingleCategory'
 
 const Home = () => {
   const {list} = useSelector(({products}) => products)
@@ -9,7 +8,7 @@ const Home = () => {
 
   return (
     <div>
-        <Products products={list} amount={9}/>
+        <SingleCategory products={list} amount={9}/>
     </div>
   )
 }
