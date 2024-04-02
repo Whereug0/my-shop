@@ -6,12 +6,16 @@ import { ROUTES } from "../../utils/routes";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleForm } from "../../features/user/userSlice";
 import AVATAR from '../../assets/images/avatar.jpg'
+import { useGetProductsQuery } from "../../features/api/apiSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const {currentUser} = useSelector(({user}) => user);
+  const [searchValue, setSearchValue] = useState("");
 
   const [values, setValues] = useState({name: "guest", avatar: AVATAR})
+
+  const {data, isLoading, refetch} = useGetProductsQuery({title: searchValue})
 
   useEffect(() => {
     if(!currentUser) return;
@@ -22,24 +26,50 @@ const Header = () => {
     if(!currentUser) dispatch(toggleForm(true));
   };
 
+  const handleSearch = ({target: {value}}) => {
+    setSearchValue(value)
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      refetch({ title: searchValue });
+    }, 500); 
+    return () => clearTimeout(timer);
+  }, [searchValue, refetch]);
+
   return (
     <div className={styles.header}>
       <div className={styles.logo}>
         <Link to={ROUTES.HOME}>Logo</Link>
       </div>
         <form className={styles.inputWrapp} action="">
-          <img 
-            className={styles.searchIcon} 
-            src={searchIcon} 
-            alt="search" 
-          />
-          <input 
-            type="text" 
-            placeholder="Search" 
-            onChange={() => {}}
-            value=""
-          />
-          {false && <div className={styles.box}></div>}
+         <div style={{display: "flex", gap: 10}}>
+          <img
+              className={styles.searchIcon} 
+              src={searchIcon} 
+              alt="search" 
+            />
+            <input 
+              type="text" 
+              placeholder="Search" 
+              onChange={handleSearch}
+              value={searchValue}
+            />
+         </div>
+          {searchValue && <div className={styles.box}>
+           {isLoading ? 'Loading:': !data.length ? "No results": (
+            data.map(({title, images, id}) => {
+              return (
+              <Link key={id} onClick={() => setSearchValue('')} className={styles.product} to={`/products/${id}`}>
+                <div className={styles.imageWrapp}>
+                  <img className={styles.image} src={images[0]} alt="img" />
+                </div>
+                <div className={styles.title}>{title}</div>
+              </Link>
+              )
+            })
+           )} 
+          </div>}
         </form>
       <div className={styles.buttons}>
         <Link className={styles.heart}>
