@@ -10,6 +10,7 @@ const UserSignUpForm = ({closeForm, toggleCurrentFormType}) => {
     name: "",
     email: "",
     password: "",
+    avatar: "",
   })
 
   const handleChange = ({target: {value, name}}) => {
@@ -66,6 +67,17 @@ const UserSignUpForm = ({closeForm, toggleCurrentFormType}) => {
             placeholder='Your password' 
             name="password" 
             value={values.password} 
+            autoComplete='off' 
+            onChange={handleChange} 
+            required
+          />
+        </div>
+        <div className={styles.group}>
+          <input 
+            type="avatar" 
+            placeholder='Enter image link' 
+            name="avatar" 
+            value={values.avatar} 
             autoComplete='off' 
             onChange={handleChange} 
             required

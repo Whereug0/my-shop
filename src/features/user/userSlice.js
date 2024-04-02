@@ -28,12 +28,24 @@ export const loginUser = createAsyncThunk(
           {"Authorization": `Bearer ${res.data.access_token}`}
       });
       return login.data;
-
     } catch (err) {
       console.log(err);
       return thunkAPI.rejectWithValue(err);
     }
 })
+
+export const updateUser = createAsyncThunk(
+  "users/updateUser",
+  async (payload, thunkAPI) => {
+    try {
+      const res = await axios.put(`${BASE_URL}/users/${payload.id}`, payload);
+      return res.data;
+    } catch (err) {
+      console.log(err);
+      return thunkAPI.rejectWithValue(err);
+    }
+  }
+);
 
 const addCurrentUser = (state, {payload}) => {
   state.currentUser = payload;
@@ -72,6 +84,7 @@ const userSlice = createSlice({
  
     builder.addCase(createUser.fulfilled, addCurrentUser);
     builder.addCase(loginUser.fulfilled, addCurrentUser);
+    builder.addCase(updateUser.fulfilled, addCurrentUser);
    
   }
   

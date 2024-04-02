@@ -19,7 +19,6 @@ const Product = (item) => {
   const dispatch = useDispatch();
 
   const [currentImage, setCurrentImage] = useState();
-
   const [currentSize, setCurrentSize] = useState();
 
   useEffect(() => {

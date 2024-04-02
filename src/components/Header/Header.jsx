@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
 import searchIcon from '../../assets/icons/search.svg'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../utils/routes";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleForm } from "../../features/user/userSlice";
@@ -10,6 +10,8 @@ import { useGetProductsQuery } from "../../features/api/apiSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
+
   const {currentUser} = useSelector(({user}) => user);
   const [searchValue, setSearchValue] = useState("");
 
@@ -24,6 +26,7 @@ const Header = () => {
 
   const handleClick = () => {
     if(!currentUser) dispatch(toggleForm(true));
+    else navigate(ROUTES.PROFILE)
   };
 
   const handleSearch = ({target: {value}}) => {
@@ -83,10 +86,10 @@ const Header = () => {
           </svg>
         </Link>
         {currentUser ?
-         (<div className={styles.account}>
+         (<Link to="/profile" className={styles.account}>
             <img src={values.avatar} alt="avatar"/>
             <p>{values.name}</p>
-          </div>)
+          </Link>)
           : 
           (<button onClick={handleClick}>Log In</button>)
         }

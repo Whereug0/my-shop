@@ -1,0 +1,43 @@
+.profileWrapper{
+  width: 100%;
+  // background: rgb(38, 37, 37);
+  border-radius: 8px;
+  border: 1px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.avatar {
+  width: 250px;
+  height: 250px;
+}
+
+
+.profile {
+  flex-grow: 1;
+  padding: 24px;
+}
+
+.form {
+  display: flex;
+  gap: 20px;
+  .inputs{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+}
+
+.group {
+  border: 1px solid grey;
+  width: 100%;
+  background: #212123;
+  border-radius: 8px;
+  padding: 12px 24px;
+}
+
+.group input {
+  width: 100%;
+}
