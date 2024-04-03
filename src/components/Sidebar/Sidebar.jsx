@@ -12,9 +12,8 @@ const Sidebar = () => {
       <h1 className={styles.title}>Categories</h1>
       <nav>
         <ul className={styles.menu}>
-          {list.map(({ id, name }) => (
+          {list.slice(0, 8).map(({ id, name }) => (
             <li key={id}>
-
               <NavLink
                 className={({isActive}) => `${styles.link} ${isActive ? styles.active : ""}`}
                 to={`/categories/${id}`}

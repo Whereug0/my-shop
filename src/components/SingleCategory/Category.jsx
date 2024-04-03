@@ -27,6 +27,7 @@ const Category = () => {
 
   useEffect(()=> {
     if(!id) return;
+    setValues(defaulValues)
 
     setParams({...defaultParams, categoryId: id});
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -34,14 +35,14 @@ const Category = () => {
 
   useEffect(() => {
     if(!id || !list.length) return;
-    const {name} = list.find((item) => item.id === id * 1)
-    setTitleCategory(name);
-    // Обновляем параметр title при изменении категории
-    setParams(prevParams => ({...prevParams, title: name}));
+
+    const category = list.find((item) => item.id === id * 1);
+
+    setTitleCategory(category);
   }, [list, id]);
 
   const {data = [], isLoading, isSuccess} = useGetProductsQuery(params);
-
+  
 
   const handleChange = ({target: {value, name}}) => {
     setValues({...values, [name]: value})
@@ -49,14 +50,15 @@ const Category = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setParams({...params, ...values})
+    
+    setParams({...defaultParams, ...values})
   };
 
   return (
     <div className={styles.wrapper}>
-      <h1>{titleCategory}</h1>
       <form className={styles.filters} onSubmit={handleSubmit}>
         <div className={styles.filter}>
+          <span style={{fontSize: 16, fontWeight: 700}}>{titleCategory?.name}</span>
           <input 
             type="text" 
             name="title" 
@@ -66,6 +68,7 @@ const Category = () => {
           />
         </div>
         <div className={styles.filter}>
+          <span>Price from</span>
           <input 
             type="number" 
             name="price_min" 
@@ -75,6 +78,7 @@ const Category = () => {
           />
         </div>  
         <div className={styles.filter}>
+          <span>Price to</span>
           <input 
             type="number" 
             name="price_max" 
@@ -94,7 +98,7 @@ const Category = () => {
           <button>Reset</button>
         </div>
       ): (
-        <Products title="" products={data} amount={20}/>
+        <Products title={titleCategory} products={data} amount={data.length}/>
       )}
     </div>
   )

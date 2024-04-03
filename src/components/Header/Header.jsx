@@ -80,7 +80,7 @@ const Header = () => {
             <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#heart`}/>
           </svg>
         </Link>
-        <Link>
+        <Link to={"/cart"}>
           <svg>
             <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#bag`}/>
           </svg>

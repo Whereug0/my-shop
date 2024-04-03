@@ -13,8 +13,9 @@
   padding: 12px 0px;
   width: max-content;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   min-width: 100px;
+  
 }
 
 .full {
@@ -34,7 +35,8 @@
   font-weight: 400;
   font-size: 13px;
   line-height: 16px;
-  text-align: right;
+  text-align: start;
+  padding-bottom: 5px;
 }
 
 .more {
