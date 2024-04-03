@@ -98,7 +98,7 @@ const Category = () => {
           <button>Reset</button>
         </div>
       ): (
-        <Products title={titleCategory} products={data} amount={data.length}/>
+        <Products title={titleCategory} products={data} amount={15}/>
       )}
     </div>
   )

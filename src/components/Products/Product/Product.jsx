@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Product.module.scss';
 import { useDispatch } from 'react-redux';
-import { addItemToCart } from '../../../features/user/userSlice';
+import { addItemToCart, addItemToFavourites } from '../../../features/user/userSlice';
 
 
 const SIZES = [4,5,2,5.5];
@@ -28,6 +28,10 @@ const Product = (item) => {
 
   const addToCart = () => {
     dispatch(addItemToCart(item));
+  }
+
+  const addToFavourites = () => {
+    dispatch(addItemToFavourites(item))
   }
   
   return (
@@ -78,7 +82,12 @@ const Product = (item) => {
           >
               Add to cart
             </button>
-          <button className={styles.favourite}>Add to favourites</button>
+          <button
+            className={styles.favourite}
+            onClick={addToFavourites}
+          >
+            Add to favourites
+          </button>
         </div>
       </div>
     </div>

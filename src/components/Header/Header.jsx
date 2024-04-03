@@ -12,7 +12,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
 
-  const {currentUser} = useSelector(({user}) => user);
+  const {currentUser, cart, favourites} = useSelector(({user}) => user);
   const [searchValue, setSearchValue] = useState("");
 
   const [values, setValues] = useState({name: "guest", avatar: AVATAR})
@@ -75,15 +75,21 @@ const Header = () => {
           </div>}
         </form>
       <div className={styles.buttons}>
-        <Link className={styles.heart}>
+        <Link to='/favourites' className={styles.heart}>
           <svg>
             <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#heart`}/>
           </svg>
+          {!!favourites.length && (
+              <span className={styles.count}>{favourites.length}</span>
+          )}
         </Link>
-        <Link to={"/cart"}>
+        <Link to="/cart">
           <svg>
             <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#bag`}/>
           </svg>
+          {!!cart.length && (
+              <span className={styles.count}>{cart.length}</span>
+          )}
         </Link>
         {currentUser ?
          (<Link to="/profile" className={styles.account}>

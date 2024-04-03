@@ -1,4 +1,7 @@
-
+.title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
 .list {
   width: 100%;
   display: flex;
@@ -15,11 +18,11 @@
       height: auto;
     }
   }
-  .price{
-    font-size: 14px;
-  }
 }
 
+.price{
+  font-size: 14px;
+}
 
 .wrapper {
   padding: 20px;
@@ -27,4 +30,14 @@
   flex-direction: column;
 }
 
+.favourites{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+.removeBtn {
+  margin-top: 10px;
+}

@@ -56,6 +56,7 @@ const userSlice = createSlice({
   initialState: {
     currentUser: null,
     cart: [],
+    favourites: [],
     isLoading: false,
     formType: "login",
     showForm: false,
@@ -76,6 +77,20 @@ const userSlice = createSlice({
     removeItemFromCart: (state, {payload}) => {
       state.cart = state.cart.filter(({id}) => id !== payload)
     },
+    addItemToFavourites: (state, { payload }) => {
+      const foundIndex = state.favourites.findIndex(({ id }) => id === payload.id);
+    
+      if (foundIndex !== -1) {
+        // Если элемент уже в избранном, обновляем его
+        state.favourites[foundIndex] = { ...payload };
+      } else {
+        // Если элемента нет в избранном, добавляем его
+        state.favourites.push({ ...payload });
+      }
+    },
+    removeItemToFavourites: (state, {payload}) => {
+      state.favourites = state.favourites.filter(({id}) => id !== payload)
+    },
     toggleForm: (state, {payload}) => {
       state.showForm = payload;
     },
@@ -93,6 +108,13 @@ const userSlice = createSlice({
   
 });
 
-export const { addItemToCart, toggleForm, toggleFormType, removeItemFromCart } = userSlice.actions;
+export const { 
+  addItemToCart, 
+  toggleForm, 
+  toggleFormType, 
+  removeItemFromCart, 
+  addItemToFavourites, 
+  removeItemToFavourites
+} = userSlice.actions;
 
 export default userSlice.reducer;
