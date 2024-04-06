@@ -1,10 +1,10 @@
 .wrapper {
   position: fixed;
-  top: 35%;
-  left: 40%;
+  top: 30%;
+  left: 43%;
   background: #121212;
   border-radius: 10px;
-  width: 320px;
+  // width: 320px;
   height: max-content;
   z-index: 99;
   padding: 24px;
@@ -52,4 +52,68 @@
 
 .link:hover {
   color: #BB86FC;
+}
+
+@media (max-width:1100px) {
+  .wrapper{
+    left: 35%;
+  }
+}
+
+@media (max-width:800px) {
+  .wrapper{
+    left: 30%;
+  }
+}
+
+@media (max-width:800px) {
+  .wrapper{
+    left: 28%;
+  }
+}
+
+
+@media (max-width:640px) {
+  .wrapper{
+    left: 25%;
+  }
+}
+
+
+
+@media (max-width:550px) {
+  .wrapper{
+    left: 20%;
+  }
+}
+
+@media (max-width:510px) {
+  .wrapper{
+    left: 15%;
+  }
+}
+
+@media (max-width:380px) {
+  .wrapper{
+    left: 12%;
+  }
+}
+
+@media (max-width:365px) {
+  .wrapper{
+    left: 9%;
+  }
+}
+
+@media (max-width:350px) {
+  .wrapper{
+    left: 6%;
+  }
+}
+
+
+@media (max-width:320px) {
+  .wrapper{
+    left: 5%;
+  }
 }

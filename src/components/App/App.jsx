@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { getCategories } from '../../features/categories/categoriesSlice';
 
@@ -19,12 +19,14 @@ function App() {
     dispatch(getProducts())
   }, [dispatch])
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
   return (
     <div className={styles.App}>
-      <Header />
+      <Header isSidebarOpen={isSidebarOpen} toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}/>
       <UserForm />
       <div className={styles.container}>
-        <Sidebar />
+        <Sidebar isSidebarOpen={isSidebarOpen}/>
         <AppRoutes />
       </div>
     </div>

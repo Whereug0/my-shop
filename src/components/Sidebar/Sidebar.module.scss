@@ -6,6 +6,13 @@
   height: 500px;
   background: rgb(38, 37, 37);
 }
+.open {
+  display: block; // Показывать при наличии класса .open
+}
+
+.closed {
+  display: none;
+}
 .title {
   margin-top: 10px;
   margin-bottom: 15px;
@@ -47,9 +54,18 @@
 
 @media (max-width: 768px) {
   .sidebar {
-    display: none;
     max-width: 200px;
     width: 100%;
+    width: 400px;
+    position: absolute;
+    height: 100vh;
+    left: 0px;
+    top: 62px;
+  }
+
+
+  .sidebar:not(.open) {
+    display: none;
   }
 }
 

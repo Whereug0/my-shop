@@ -7,10 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleForm } from "../../features/user/userSlice";
 import AVATAR from '../../assets/images/avatar.jpg'
 import { useGetProductsQuery } from "../../features/api/apiSlice";
+import Sidebar from "../Sidebar/Sidebar";
 
-const Header = () => {
+const Header = ({ isSidebarOpen, toggleSidebar }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
+
+  // const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const {currentUser, cart, favourites} = useSelector(({user}) => user);
   const [searchValue, setSearchValue] = useState("");
@@ -43,13 +46,14 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <div className={styles.logo}>
-        <div className={styles.menuIcon}>
+        <div className={styles.menuIcon} onClick={toggleSidebar}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="Hamburger" >
             <g fill="#ffffff" className="color134563 svgShape">
               <path d="M8.2 13h47.5v6.3H8.2zM8.2 28.8h47.5v6.4H8.2zM8.2 44.7h47.5V51H8.2z" fill="#fff"></path>
             </g>
           </svg>
         </div>
+        <Sidebar isOpen={isSidebarOpen}/>
 
         <Link to={ROUTES.HOME}>Logo</Link>
       </div>
