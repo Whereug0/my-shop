@@ -57,16 +57,16 @@
     max-width: 200px;
     width: 100%;
     width: 400px;
-    position: absolute;
     height: 100vh;
     left: 0px;
     top: 62px;
-  }
-
-
-  .sidebar:not(.open) {
     display: none;
   }
+  .open {
+    display: block;
+    position: fixed;
+  }
+
 }
 
 @media (max-width: 700px) {
@@ -77,8 +77,8 @@
 }
 
 
-@media (max-width: 480px) {
-  .sidebar {
-    display: none;
-  }
-}
+// @media (max-width: 480px) {
+//   .sidebar {
+//     display: none;
+//   }
+// }

@@ -24,14 +24,17 @@
 
 @media (max-width: 768px) {
   .container{
-    align-items: center;
+    // align-items: center;
     justify-content: center;
     gap: 20px;
+  }
+  .App {
+    margin: 8px 10px;
   }
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 481px) {
   .App {
     margin: 8px 5px;
   }

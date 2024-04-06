@@ -8,12 +8,14 @@ import { toggleForm } from "../../features/user/userSlice";
 import AVATAR from '../../assets/images/avatar.jpg'
 import { useGetProductsQuery } from "../../features/api/apiSlice";
 import Sidebar from "../Sidebar/Sidebar";
+import { useMediaQuery } from '@react-hook/media-query'
 
-const Header = ({ isSidebarOpen, toggleSidebar }) => {
+const Header = ({ toggleSidebar }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
+  const matches = useMediaQuery('(max-width: 768px)');
 
-  // const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(!matches);
 
   const {currentUser, cart, favourites} = useSelector(({user}) => user);
   const [searchValue, setSearchValue] = useState("");
@@ -46,14 +48,14 @@ const Header = ({ isSidebarOpen, toggleSidebar }) => {
   return (
     <div className={styles.header}>
       <div className={styles.logo}>
-        <div className={styles.menuIcon} onClick={toggleSidebar}>
+        <div className={styles.menuIcon} onClick={() => toggleSidebar()}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="Hamburger" >
             <g fill="#ffffff" className="color134563 svgShape">
               <path d="M8.2 13h47.5v6.3H8.2zM8.2 28.8h47.5v6.4H8.2zM8.2 44.7h47.5V51H8.2z" fill="#fff"></path>
             </g>
           </svg>
         </div>
-        <Sidebar isOpen={isSidebarOpen}/>
+        {/* <Sidebar isOpen={isSidebarOpen}/> */}
 
         <Link to={ROUTES.HOME}>Logo</Link>
       </div>

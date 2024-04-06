@@ -19,14 +19,14 @@ function App() {
     dispatch(getProducts())
   }, [dispatch])
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <div className={styles.App}>
-      <Header isSidebarOpen={isSidebarOpen} toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}/>
+      <Header toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}/>
       <UserForm />
       <div className={styles.container}>
-        <Sidebar isSidebarOpen={isSidebarOpen}/>
+        <Sidebar isSidebarOpen={!isSidebarOpen}/>
         <AppRoutes />
       </div>
     </div>
