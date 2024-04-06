@@ -1,5 +1,6 @@
 .sidebar {
-  min-width: 300px;
+  max-width: 300px;
+  width: 100%;
   border-radius: 8px;
   padding: 10px 20px;
   height: 500px;
@@ -23,4 +24,45 @@
 
 .link:hover {
   color: #BB86FC;
+}
+@media (max-width: 1600px) {
+  .sidebar {
+    min-width: 200px;
+    width: 100%;
+  }
+}
+@media (max-width: 992px) {
+  .sidebar {
+    max-width: 170px;
+    width: 100%;
+    h1{
+      font-size: 17px;
+    }
+    a{
+      font-size: 13px;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+    max-width: 200px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    max-width: 200px;
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .sidebar {
+    display: none;
+  }
 }

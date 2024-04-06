@@ -43,6 +43,14 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <div className={styles.logo}>
+        <div className={styles.menuIcon}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="Hamburger" >
+            <g fill="#ffffff" className="color134563 svgShape">
+              <path d="M8.2 13h47.5v6.3H8.2zM8.2 28.8h47.5v6.4H8.2zM8.2 44.7h47.5V51H8.2z" fill="#fff"></path>
+            </g>
+          </svg>
+        </div>
+
         <Link to={ROUTES.HOME}>Logo</Link>
       </div>
         <form className={styles.inputWrapp} action="">
