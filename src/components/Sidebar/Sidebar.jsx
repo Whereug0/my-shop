@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 
 const Sidebar = () => {
-  const { list } = useSelector(({ categories }) => categories)
+  const { list } = useSelector(({ categories }) => categories);
 
 
   return (
@@ -29,4 +29,4 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+export default Sidebar;

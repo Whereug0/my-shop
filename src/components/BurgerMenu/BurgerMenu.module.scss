@@ -1,0 +1,58 @@
+.burgerMenu {
+  position: fixed;
+  height: 100vh;
+  z-index: 100;
+  top: 58px;
+  left: 0;
+  min-width: 300px;
+  padding: 10px 20px;
+  background: #121212;
+  transform: translateX(-130%);
+  transition: all 0.3s;
+}
+.open {
+  transform: translateX(0%);
+  display: block;
+}
+.blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(4px); /* Здесь можно настроить силу размытия */
+  z-index: -1; /* Должен быть выше, чем у меню */
+}
+
+.title {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+.menu {
+  margin-top: 50px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.active {
+  color: grey;
+}
+
+.link:hover {
+  color: #BB86FC;
+}
+
+@media (max-width:480px) {
+  .burgerMenu{
+    top: 52px;
+  }
+  .menu {
+    a {
+      font-size: 18px;
+    }
+  }
+}

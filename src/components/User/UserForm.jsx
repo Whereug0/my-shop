@@ -15,6 +15,8 @@ const UserForm = () => {
   const toggleCurrentFormType = (type) => dispatch(toggleFormType(type));
 
 
+  
+
   return showForm ? (
     <div className={styles.UseForm}>
       <div className={styles.overlay} onClick={closeForm}/>
@@ -29,4 +31,4 @@ const UserForm = () => {
     );
 }
 
-export default UserForm
+export default UserForm;

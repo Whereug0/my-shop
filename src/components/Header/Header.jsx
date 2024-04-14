@@ -7,14 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleForm } from "../../features/user/userSlice";
 import AVATAR from '../../assets/images/avatar.jpg'
 import { useGetProductsQuery } from "../../features/api/apiSlice";
-import { useMediaQuery } from '@react-hook/media-query'
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
-const Header = ({ toggleSidebar }) => {
+const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
-  const matches = useMediaQuery('(max-width: 768px)');
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const {currentUser, cart, favourites} = useSelector(({user}) => user);
   const [searchValue, setSearchValue] = useState("");
@@ -37,6 +36,19 @@ const Header = ({ toggleSidebar }) => {
     setSearchValue(value)
   }
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prevState) => !prevState);
+
+  }
+
+  useEffect(() => {
+    console.log('isSidebarOpen:', isSidebarOpen);
+  }, [isSidebarOpen]);
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       refetch({ title: searchValue });
@@ -54,7 +66,7 @@ const Header = ({ toggleSidebar }) => {
             </g>
           </svg>
         </div>
-        {/* <Sidebar isOpen={isSidebarOpen}/> */}
+        <BurgerMenu isSidebarOpen={isSidebarOpen} closeSidebar={closeSidebar}/>
 
         <Link to={ROUTES.HOME}>Logo</Link>
       </div>
