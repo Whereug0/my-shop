@@ -124,16 +124,17 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  position: relative; /* Добавим относительное позиционирование */
 }
 
 .close svg {
   width: 16px;
   height: 16px;
-  // stroke: white;
+  fill: white; /* Заполним иконку белым цветом */
 }
 
 .close:hover svg {
-  stroke: #BB86FC;
+  fill: #BB86FC; /* Изменим цвет иконки при наведении */
 }
 
 .actions {
@@ -190,7 +191,7 @@
   }
   .close svg{
     position: absolute;
-    top: 200px;
+    top: -150px;
   }
 }
 
@@ -209,7 +210,7 @@
   }
   .close svg{
     position: absolute;
-    top: 200px;
+    top: 5px;
   }
 }
 
@@ -225,8 +226,8 @@
     flex-direction: column;
   }
   .close svg{
-    top: 186px;
-    right: 105px;
+    top: -250px;
+    right: -90px;
   }
 
   .infoPrice{
@@ -236,7 +237,27 @@
 
 @media (max-width: 480px) {
   .close svg{
-    top: 155px;
-    right: 50px;
+    top: -260px;
+  }
+}
+
+
+@media (max-width: 460px) {
+  .close svg{
+    right: -40px;
+  }
+}
+
+@media (max-width: 354px) {
+  .close svg{
+    right: -28px;
+  }
+}
+
+
+@media (max-width: 320px) {
+  .close svg{
+    top: -284px;
+    right: -28px;
   }
 }

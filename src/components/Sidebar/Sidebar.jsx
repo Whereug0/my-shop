@@ -4,13 +4,12 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 
-const Sidebar = ({ isSidebarOpen }) => {
+const Sidebar = () => {
   const { list } = useSelector(({ categories }) => categories)
 
 
-
   return (
-    <div className={`${styles.sidebar} ${isSidebarOpen ? styles.open : styles.closed}`}>
+    <div className={styles.sidebar}>
       <h1 className={styles.title}>Categories</h1>
       <nav>
         <ul className={styles.menu}>

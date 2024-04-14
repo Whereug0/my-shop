@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleForm } from "../../features/user/userSlice";
 import AVATAR from '../../assets/images/avatar.jpg'
 import { useGetProductsQuery } from "../../features/api/apiSlice";
-import Sidebar from "../Sidebar/Sidebar";
 import { useMediaQuery } from '@react-hook/media-query'
 
 const Header = ({ toggleSidebar }) => {
@@ -15,7 +14,7 @@ const Header = ({ toggleSidebar }) => {
   const navigate = useNavigate()
   const matches = useMediaQuery('(max-width: 768px)');
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(!matches);
+  const [isSidebarOpen, setIsSidebarOpen] = useState();
 
   const {currentUser, cart, favourites} = useSelector(({user}) => user);
   const [searchValue, setSearchValue] = useState("");

@@ -1,18 +1,11 @@
 .sidebar {
-  max-width: 300px;
-  width: 100%;
+  min-width: 300px;
   border-radius: 8px;
   padding: 10px 20px;
   height: 500px;
   background: rgb(38, 37, 37);
 }
-.open {
-  display: block; // Показывать при наличии класса .open
-}
 
-.closed {
-  display: none;
-}
 .title {
   margin-top: 10px;
   margin-bottom: 15px;
@@ -34,19 +27,17 @@
 }
 @media (max-width: 1600px) {
   .sidebar {
-    min-width: 200px;
-    width: 100%;
+    min-width: 250px;
   }
 }
 @media (max-width: 992px) {
   .sidebar {
-    max-width: 170px;
-    width: 100%;
+    min-width: 200px;
     h1{
-      font-size: 17px;
+      font-size: 18px;
     }
     a{
-      font-size: 13px;
+      font-size: 15px;
     }
   }
 }
@@ -54,9 +45,6 @@
 
 @media (max-width: 768px) {
   .sidebar {
-    max-width: 200px;
-    width: 100%;
-    width: 400px;
     height: 100vh;
     left: 0px;
     top: 62px;
@@ -69,16 +57,10 @@
 
 }
 
-@media (max-width: 700px) {
+
+
+@media (max-width: 480px) {
   .sidebar {
-    max-width: 200px;
-    width: 100%;
+    display: none;
   }
 }
-
-
-// @media (max-width: 480px) {
-//   .sidebar {
-//     display: none;
-//   }
-// }

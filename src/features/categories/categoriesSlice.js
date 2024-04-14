@@ -10,7 +10,6 @@ export const getCategories = createAsyncThunk(
     try {
       const res = await axios(`${BASE_URL}/categories`);
       return res.data;
-
     } catch (err) {
       console.log(err);
       return thunkAPI.rejectWithValue(err);
@@ -36,7 +35,6 @@ const categoriesSlice = createSlice({
       state.isLoading = false;
     });
   }
-  
 });
 
 
